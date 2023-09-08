@@ -28,7 +28,7 @@ public class Reader {
 
     // 'isNumeric' method is implemented from this link: https://www.baeldung.com/java-check-string-number
     
-    public static List<Double> ReadInputs() throws IOException{
+    public List<Double> ReadInputs() throws IOException{
 
         List<Double> arr = new ArrayList<Double>();
         // Declare a list object while will be the array which we use to store inputs and return
@@ -41,32 +41,35 @@ public class Reader {
 
         do {
 
-        input = reader.readLine();
-        // read the line line in from console
+            input = reader.readLine();
+            // read the line line in from console
 
-        if(input.isEmpty()){
-            continue;
-        }
+            if(input.isEmpty()){
+                continue;
+            }
 
-        if(!(isNumeric(input))){
-            System.out.println("Please input a valid number");
-            continue;
-        }
-        // Check if input is a valid number so that it can be converted
-    
-        // Check if float
+            if(!(isNumeric(input))){
+                System.out.println("Please input a valid number");
+                continue;
+            }
+            // Check if input is a valid number so that it can be converted
         
-        Double flt_input = Double.parseDouble(input);
-        // Parse the number and store it
-        
-        arr.add(flt_input);
-        // Add the input to the list
+            // Check if float
+            
+            Double flt_input = Double.parseDouble(input);
+            // Parse the number and store it
+            
+            arr.add(flt_input);
+            // Add the input to the list
 
-        System.out.println(Arrays.toString(arr.toArray()));
+            System.out.println(Arrays.toString(arr.toArray()));
+            // Prints the current array to console after each iteration. 
 
         }while(!(input.isEmpty()));
+        // Stops when the input string is empty
 
         reader = null;
+        // makes reader null such that the memory can be picked up by the garbage collector
 
         return arr;
     }

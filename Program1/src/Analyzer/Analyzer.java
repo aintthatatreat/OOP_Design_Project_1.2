@@ -12,20 +12,25 @@ import java.io.File;
 public class Analyzer {
 
     private List<Double> arr;
+    // List object to store user inputs
 
     public Analyzer(List<Double> array){
         this.arr = array;
     }
+    // Constructor
 
     public void setArr(List<Double> array){
         this.arr = array;
     }
+    // Setter for arr
 
     public List<Double> getArr(){
         return this.arr;
     }
+    // Getter for arr
 
     private double mean(double[] arr){
+
         int s = arr.length;
         double mean = 0.0;
         for(int i = 0; i < s; i++){
@@ -34,6 +39,7 @@ public class Analyzer {
         double d = s; 
         return mean / d;
     }
+    // Using a variable to store a running total which will then be divided by the length of the input array
 
     private double standardDeviation(double[] arr){
 
@@ -51,11 +57,13 @@ public class Analyzer {
         return running_total / d;
         
     }
+    // As above, except it depends on the mean() method to run the standard deviation calculation.
 
     private double variance(double[] arr){
         double sd = standardDeviation(arr); 
         return sd * sd;
     }
+    // Depends on the StandardDeviation() method to calculate variance (squares it)
 
     private double median(double[] arr){
         int s = arr.length;
@@ -73,6 +81,9 @@ public class Analyzer {
 
         return arr[d];
     }
+    // Takes median by having two different cases. In the case where there are an even number of elements in the array, 
+    // this will take the average of the middle two entries. In the case where there are an odd number of elements,
+    // this will simple take the middle element by dividing the size of the array by two and rounding down. 
 
     private List<Object> mode(double[] arr){
 
@@ -103,6 +114,10 @@ public class Analyzer {
 
 
     }
+    // This method takes the mode of the input array. It does this by creating a hashmap which will contain the frequency of each element in the array. 
+    // After that, we take the maximum count element in the hashmap and return both that and the associated frequency.
+    // We use the hashmap object because it is much faster to access each element inside compared to an array. 
+    //(Also it behaves like a dictionary, which is what we need)
 
     private double max(double[] arr){
 
@@ -118,6 +133,7 @@ public class Analyzer {
 
         return curr_max;
     }
+    // This just loops through the list of given numbers to find the maximum using a temporary max which all others are compared to
 
     private double min(double[] arr){
 
@@ -131,6 +147,7 @@ public class Analyzer {
 
         return curr_min;
     }
+    // This also loops through all elements of the array to using a temporary minimum variable to compare to all other elements. 
 
     private static void writeUsingOutputStream(String data) {
         OutputStream os = null;
@@ -149,27 +166,40 @@ public class Analyzer {
     }
 
     // This file writing system was found via https://www.digitalocean.com/community/tutorials/java-write-to-file
+    // Used FilerOutputStream object to print to the file 'results'. To be clear, the results file is just a temporary file that is used before I write the 
+    // the 'Results1' file used for grading. 
     
 
     public void analyze(){
         
         arr = getArr();
+        // Gets the array (could have used this.arr but whatever the outcome is the same)
 
         double[] array = new double[arr.size()];
+        // Array used to fit the converted List<Double> to just a double[] array. 
 
         for(int i = 0; i < array.length; i++){
             array[i] = arr.get(i);
         }
+        // Puts in each element from the list to the array. 
 
         Arrays.sort(array);
+        // Sorts the elements in the array so it actually works with some of the following methods (primarily median)
 
         double average = mean(array);
+        // Take the average
         double med = median(array);
+        // Take the median
         List<Object> mode_and_count = mode(array);
+        // Take the mode and the count for the mode
         double maximum = max(array);
+        // Take the maximum element
         double minimum = min(array);
+        // Take the minimum element
         double sd = standardDeviation(array);
+        // Take the standard deviation
         double var = variance(array);
+        // Take the variance
 
         String av = "Mean: " + average + "\n";
         String me = "Median: " + med + "\n";
@@ -178,9 +208,12 @@ public class Analyzer {
         String mi = "Minimum: " + minimum + "\n";
         String stand = "Standard Deviation: " + sd + "\n";
         String va = "Variance: " + var + "\n";
+        // This part makes all of those previous calculations into strings so that they can be printed to the 'Results.txt' file. 
 
         String tot = array + "\n" + av + me + mo + ma+ mi + stand + va;
+        // Adds all the strings into one. 
 
         writeUsingOutputStream(tot);
+        // Outputs those strings. 
     }
 }

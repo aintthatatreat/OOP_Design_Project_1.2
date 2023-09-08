@@ -1,0 +1,15 @@
+Input: Bruce
+Output: 
+
+    (base) vernonwalker@Vernons-MacBook-Pro src % java App.java
+    Please input a string to be palindrome'd and sorted:
+    Bruce
+    URECBCERU
+
+Input: Vernon Walker
+Output: 
+
+    (base) vernonwalker@Vernons-MacBook-Pro src % java App.java
+    Please input a string to be palindrome'd and sorted:
+    Vernon Walker
+    WVRRONNLKEEAEEKLNNORRVW
