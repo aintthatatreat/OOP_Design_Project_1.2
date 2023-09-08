@@ -1,0 +1,26 @@
+
+Test 1:
+
+    Given Array: [5.0, 9.0, 12.0, 45.0, 67.0, 55.0, 34.0, 22.0, 33.0, 32.0, 32.0, 32.0, 44.0, 7.0, 122.0]
+
+    Mean: 36.733333333333334
+    Median: 32.0
+    Mode: 32.0 with a count of 3
+    Maximum: 122.0
+    Minimum: 5.0
+    Standard Deviation: 19.91111111111111
+    Variance: 396.45234567901235
+
+Test 2: 
+
+    Given Array: [2.25, 7.5, 30.123532353653, 9.4509, 3.14159, 2.9, 54.45762, 2.53632644, 5.34, 7.5, 15.6437]
+
+    Mean: 12.803969890332091
+    Median: 7.5
+    Mode: 7.5 with a count of 2
+    Maximum: 54.45762
+    Minimum: 2.25
+    Standard Deviation: 11.238716851392132
+    Variance: 126.30875646576548
+
+

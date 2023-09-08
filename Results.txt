@@ -1,0 +1,8 @@
+[D@7dc222ae
+Mean: 12.803969890332091
+Median: 7.5
+Mode: 7.5 with a count of 2
+Maximum: 54.45762
+Minimum: 2.25
+Standard Deviation: 11.238716851392132
+Variance: 126.30875646576548
